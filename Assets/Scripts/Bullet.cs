@@ -4,6 +4,8 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
     public float lifetime = 2f;
+    public int damage = 50;
+    public GameObject hitEffect;
 
     void Start()
     {
@@ -13,7 +15,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Add logic for hitting enemies later
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+        Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
