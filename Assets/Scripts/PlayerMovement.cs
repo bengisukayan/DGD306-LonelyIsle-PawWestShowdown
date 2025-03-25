@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 10f;
     public LayerMask groundLayer;
     public Transform groundCheck;
+    public Transform gunPoint;
     
     private Rigidbody2D rb;
     private Animator anim;
@@ -34,7 +35,10 @@ public class PlayerMovement : MonoBehaviour
         if (!isCrouching) // Can't move while crouching
         {
             rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-            if (moveInput != 0) transform.localScale = new Vector3(Mathf.Sign(moveInput), 1, 1); // Flip sprite
+            if (moveInput != 0)
+            {
+                transform.rotation = Quaternion.Euler(0, moveInput > 0 ? 0f : 180f, 0);
+            }
         }
 
         // Handle Jump
@@ -72,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator RecoverFromHurt()
     {
         moveSpeed = 0; // Temporarily disable movement
-        yield return new WaitForSeconds(0.5f); // Adjust time to match the Hurt animation length
+        yield return new WaitForSeconds(1f);
         moveSpeed = 5f; // Restore movement speed
     }
 }
