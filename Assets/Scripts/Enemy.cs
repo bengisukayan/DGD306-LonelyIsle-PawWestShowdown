@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     public int health = 100;
     public GameObject deathEffect;
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
@@ -14,9 +14,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    protected virtual void Die()
     {
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        if (deathEffect != null)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

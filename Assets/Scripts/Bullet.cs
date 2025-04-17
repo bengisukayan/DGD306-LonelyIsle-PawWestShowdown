@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
+
         Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

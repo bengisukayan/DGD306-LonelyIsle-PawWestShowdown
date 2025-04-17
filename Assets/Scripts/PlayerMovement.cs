@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public int health = 100;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public LayerMask groundLayer;
@@ -61,10 +62,16 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("IsFalling", isFalling);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
         anim.SetTrigger("Hurt"); // Play the Hurt animation
         rb.velocity = Vector2.zero; // Stop movement briefly
+
+        health -= damage;
+        if (health <= 0)
+        {
+            //Die();
+        }
 
         // Optionally add knockback
         rb.AddForce(new Vector2(-5f * transform.localScale.x, 5f), ForceMode2D.Impulse);
