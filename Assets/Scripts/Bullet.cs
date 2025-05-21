@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     public float lifetime = 2f;
     public int damage = 50;
     public GameObject hitEffect;
-
+    //add more variables here
     void Start()
     {
         GetComponent<Rigidbody2D>().velocity = transform.right * speed; // Move bullet in direction of gun
@@ -19,6 +19,16 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+        }
+
+        if (collision.CompareTag("Player"))
+        {
+            PlayerMovement player = collision.GetComponent<PlayerMovement>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
+            Destroy(gameObject);
         }
 
         Instantiate(hitEffect, transform.position, Quaternion.identity);
