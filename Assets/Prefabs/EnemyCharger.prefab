@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 86ca59b9bca0e409b9ba2784fbe69f01, type: 3}
+  m_Sprite: {fileID: -1893590757312409090, guid: 3e625454a5ae8314ab5e47afc0ca5bf3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 5379746207442145288}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: df7b51f4fb8648d40b433987c4b469b1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6dc23bfe72aa244499bd9bb940a9dcf5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   health: 100
   deathEffect: {fileID: 7672137276334979773, guid: a5b976be8e873ae4a94a33d097848958, type: 3}
   detectionRadius: 5
-  attackRange: 1.2
+  attackRange: 1.5
   speed: 5
   attackCooldown: 1
   damage: 10
@@ -190,16 +190,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013690129, y: -0.006845068}
+  m_Offset: {x: -0.0001655817, y: -0.024084896}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.35, y: 0.32}
+    oldSize: {x: 0.37, y: 0.6}
     newSize: {x: 0.35, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29523942, y: 0.2241691}
+  m_Size: {x: 0.2771659, y: 0.55466884}
   m_EdgeRadius: 0

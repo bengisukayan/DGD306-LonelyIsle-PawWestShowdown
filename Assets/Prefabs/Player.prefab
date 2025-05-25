@@ -182,7 +182,6 @@ GameObject:
   - component: {fileID: 6571289562870119593}
   - component: {fileID: 6542573390562205728}
   - component: {fileID: 8962848139989470898}
-  - component: {fileID: 2851350393393611623}
   - component: {fileID: 2461264876419307462}
   m_Layer: 6
   m_Name: Player
@@ -274,13 +273,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  lives: 9
   moveSpeed: 5
   jumpForce: 15
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 2645912784191581247}
-  gunPoint: {fileID: 344091710523192963}
 --- !u!61 &8400376679304484522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -313,10 +312,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0058345348, y: -0.00016590953}
+  m_Offset: {x: -0.0058345348, y: -0.0039810985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.516129}
     oldSize: {x: 0.24, y: 0.31}
     newSize: {x: 0.33, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -324,7 +323,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15656292, y: 0.31069195}
+  m_Size: {x: 0.15656292, y: 0.31323543}
   m_EdgeRadius: 0
 --- !u!50 &6571289562870119593
 Rigidbody2D:
@@ -406,10 +405,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0058345348, y: -0.00044880062}
+  m_Offset: {x: -0.0058345348, y: -0.0045818985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.516129}
     oldSize: {x: 0.24, y: 0.31}
     newSize: {x: 0.33, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -417,104 +416,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15781188, y: 0.3122024}
+  m_Size: {x: 0.15781188, y: 0.31283826}
   m_EdgeRadius: 0
---- !u!82 &2851350393393611623
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5546702902886860217}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &2461264876419307462
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,9 +23,14 @@ public class ScoreManager : MonoBehaviour
     {
         if (resetScoreAtStart)
         {
-            ScoreManager.Instance.ResetScore();
+            Instance.ResetScore();
+            PlayerMovement player = FindObjectOfType<PlayerMovement>();
+            if (player != null)
+            {
+                player.health = 100;
+                player.lives = 9;
+            }
         }
-
     }
 
     public void AddScore(int amount)

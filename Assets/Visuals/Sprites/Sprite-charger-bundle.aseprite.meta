@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9301962b28f8c7547b052232558c75c9
+guid: 3e625454a5ae8314ab5e47afc0ca5bf3
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638838054824653704
+  platformSettingsDirtyTick: 638838019914910027
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Sprite-esat-sprite-bundle
+  - name: Sprite-charger-bundle
     originalName: 
-    pivot: {x: 0.5221239, y: -0.094827585}
+    pivot: {x: 0.5046729, y: -0.008}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 113
-      height: 116
-    spriteID: e99716d123016ff409419d58ec4ab3c2
+      width: 107
+      height: 125
+    spriteID: d0fcc13633e2bc944b59dfce9880b5b3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,18 +142,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: Sprite-esat-sprite-bundle_0
+  - name: Sprite-charger-bundle_0
     originalName: 
-    pivot: {x: 0.5, y: 0.516129}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 89
-      width: 24
-      height: 31
-    spriteID: 96c0bb144a2a6a448a526f86e851cba0
+      y: 69
+      width: 37
+      height: 60
+    spriteID: 0239d541f1a6d8f4a8edfe316d5300f5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -162,18 +162,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Sprite-esat-sprite-bundle_1
+  - name: Sprite-charger-bundle_1
     originalName: 
-    pivot: {x: 0.52, y: 0.53333336}
+    pivot: {x: 0.5121951, y: 0.5454545}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 33
-      y: 89
-      width: 25
-      height: 30
-    spriteID: 478e55715abcd544cbd35c7cb5363974
+      x: 70
+      y: 72
+      width: 41
+      height: 55
+    spriteID: 5fdaf1a3c06799e4d825d80ef98e3b1f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -182,98 +182,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Sprite-esat-sprite-bundle_10
+  - name: Sprite-charger-bundle_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 9
-      y: 53
-      width: 26
-      height: 32
-    spriteID: 0ff6c80bcd1259842a7d3da954be9a91
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Sprite-esat-sprite-bundle_11
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 50
-      y: 55
-      width: 25
-      height: 31
-    spriteID: 199f2c1b1d2a03a40a70f13d0b34ca80
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Sprite-esat-sprite-bundle_12
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 87
-      y: 56
-      width: 28
-      height: 31
-    spriteID: 390d44772ee72504d8205f25c8e7ef8c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Sprite-esat-sprite-bundle_13
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 13
+      x: 30
       y: 4
-      width: 34
-      height: 31
-    spriteID: 59941bd97968c494bb0fa829e2ae230b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Sprite-esat-sprite-bundle_14
-    originalName: 
-    pivot: {x: 0.5, y: 0.73913044}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 62
-      y: 7
-      width: 36
-      height: 23
-    spriteID: 1ba5e7d57d0f5364d8b34d1d5d46f7ae
+      width: 68
+      height: 59
+    spriteID: 92b9e9a557d74cd42af8704fac93981c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -284,21 +204,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -260515734
-    name: Sprite-esat-sprite-bundle
+    guid: 1150109069
+    name: Sprite-charger-bundle
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Sprite-esat-sprite-bundle
+    - name: Sprite-charger-bundle
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 5
-        y: 11
-        width: 113
-        height: 116
-      spriteId: e99716d123016ff409419d58ec4ab3c2
+        x: 10
+        y: 1
+        width: 107
+        height: 125
+      spriteId: d0fcc13633e2bc944b59dfce9880b5b3
     linkedCells: []
     parentIndex: -1
   platformSettings:
