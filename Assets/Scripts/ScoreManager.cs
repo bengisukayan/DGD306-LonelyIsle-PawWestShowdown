@@ -4,9 +4,11 @@ using System.Collections.Generic;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
+    public bool resetScoreAtStart = false;
 
     private const int maxHighScores = 5;
     private const string scoreKey = "HighScore_";
+
 
     public int CurrentScore { get; private set; }
 
@@ -15,6 +17,15 @@ public class ScoreManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        if (resetScoreAtStart)
+        {
+            ScoreManager.Instance.ResetScore();
+        }
+
     }
 
     public void AddScore(int amount)

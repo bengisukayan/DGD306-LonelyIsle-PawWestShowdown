@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class NameInput : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class NameInput : MonoBehaviour
     void Start()
     {
         if (scoreText != null)
-            scoreText.text = "Score: " + "300"; // Replace with actual score
+            scoreText.text = "Score: " + ScoreManager.Instance.CurrentScore.ToString();
 
         StartCoroutine(BlinkSelectedLetter());
         UpdateNameDisplay();
@@ -45,6 +46,10 @@ public class NameInput : MonoBehaviour
         {
             userName[currentLetter] = (char)(((userName[currentLetter] - 'A' + 1) % 26) + 'A');
             changed = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            SubmitName();
         }
 
         if (changed)
@@ -84,5 +89,6 @@ public class NameInput : MonoBehaviour
     public void SubmitName()
     {
         ScoreManager.Instance.TrySaveScore(new string(userName));
+        SceneManager.LoadScene("ScoreList");
     }
 }
