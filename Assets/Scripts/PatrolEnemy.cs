@@ -5,7 +5,7 @@ public class PatrolEnemy : Enemy
     public GameObject pointA;
     public GameObject pointB;
     public float speed;
-    public float detectionRange = 10f;
+    public float detectionRadius = 10f;
     public float fireRate = 1f;
     public int damage = 10;
     public LayerMask playerLayer;
@@ -26,17 +26,24 @@ public class PatrolEnemy : Enemy
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (player && PlayerInSight())
+        bool isPlayerDetected = PlayerInSight();
+
+        if (!isPlayerDetected)
+        {
+            player = FindPlayerInDetectionRadius();
+            isPlayerDetected = player != null;
+        }
+
+        if (isPlayerDetected && player != null)
         {
             rb.velocity = Vector2.zero;
             anim.SetBool("isWalking", false);
 
-            // Flip towards player
+            // Face the player
             spriteRenderer.flipX = player.position.x > transform.position.x;
 
             if (Time.time >= nextFireTime)
@@ -56,9 +63,10 @@ public class PatrolEnemy : Enemy
     {
         anim.SetBool("isWalking", true);
 
-        Vector2 point = currentPoint.position - transform.position;
-        rb.velocity = currentPoint == pointB.transform ? new Vector2(speed, 0) : new Vector2(-speed, 0);
-        spriteRenderer.flipX = currentPoint == pointB.transform;
+        Vector2 directionToPoint = (currentPoint.position - transform.position).normalized;
+        rb.velocity = new Vector2(directionToPoint.x * speed, rb.velocity.y);
+
+        spriteRenderer.flipX = rb.velocity.x > 0.01f;
 
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
         {
@@ -68,34 +76,58 @@ public class PatrolEnemy : Enemy
 
     bool PlayerInSight()
     {
-        Vector2 direction = (player.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRange, playerLayer);
-        Debug.DrawRay(transform.position, direction * detectionRange, Color.green);
-        return hit && hit.collider.CompareTag("Player");
+        if (player == null) return false;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        if (distanceToPlayer > detectionRadius) return false;
+
+        Vector2 directionToPlayer = (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, detectionRadius, playerLayer);
+
+        Debug.DrawRay(transform.position, directionToPlayer * detectionRadius,
+            (hit.collider != null && hit.collider.CompareTag("Player")) ? Color.green : Color.red);
+
+        return hit.collider != null && hit.collider.CompareTag("Player");
+    }
+
+    private Transform FindPlayerInDetectionRadius()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, playerLayer);
+        foreach (Collider2D collider in hitColliders)
+        {
+            if (collider.CompareTag("Player"))
+            {
+                Vector2 directionToPlayer = (collider.transform.position - transform.position).normalized;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, detectionRadius, playerLayer);
+
+                if (hit.collider == collider)
+                {
+                    return collider.transform;
+                }
+            }
+        }
+        return null;
     }
 
     void ShootRay()
     {
-        Vector2 direction = player.position - transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRange, playerLayer);
+        if (player == null) return;
 
-        if (hit)
+        Vector2 direction = (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRadius, playerLayer);
+
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, hit.collider ? hit.point : transform.position + (Vector3)direction * detectionRadius);
+
+        if (hit.collider != null && hit.collider.CompareTag("Player") &&
+            hit.collider.TryGetComponent<PlayerMovement>(out var playerScript))
         {
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, hit.point);
-
-            if (hit.collider.CompareTag("Player") && hit.collider.TryGetComponent<PlayerMovement>(out var playerScript))
-            {
-                playerScript.TakeDamage(damage);
-            }
-
-            if (hitEffect)
-                Instantiate(hitEffect, hit.point, Quaternion.identity);
+            playerScript.TakeDamage(damage);
         }
-        else
+
+        if (hit.collider != null && hitEffect)
         {
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, transform.position + (Vector3)direction * detectionRange);
+            Instantiate(hitEffect, hit.point, Quaternion.identity);
         }
 
         StartCoroutine(ShowLine());
@@ -111,8 +143,10 @@ public class PatrolEnemy : Enemy
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
-        Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * detectionRange);
+        if (pointA != null) Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
+        if (pointB != null) Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }

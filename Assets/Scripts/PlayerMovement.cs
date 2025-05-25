@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 10f;
     public LayerMask groundLayer;
     public Transform groundCheck;
-    public Transform gunPoint;
     
     private Rigidbody2D rb;
     private Animator anim;
