@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &37366438
 Transform:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &38456886
 Transform:
   m_ObjectHideFlags: 0
@@ -3746,6 +3746,22 @@ PrefabInstance:
     - target: {fileID: 5546702902886860217, guid: 1ec04b9d86ca84f43bd6dba0d61f199a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400376679304484522, guid: 1ec04b9d86ca84f43bd6dba0d61f199a, type: 3}
+      propertyPath: m_Size.y
+      value: 0.31323543
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400376679304484522, guid: 1ec04b9d86ca84f43bd6dba0d61f199a, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0039810985
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962848139989470898, guid: 1ec04b9d86ca84f43bd6dba0d61f199a, type: 3}
+      propertyPath: m_Size.y
+      value: 0.31283826
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962848139989470898, guid: 1ec04b9d86ca84f43bd6dba0d61f199a, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0045818985
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

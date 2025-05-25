@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638832920092119113
+  platformSettingsDirtyTick: 638837955874378920
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -164,8 +164,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Sprite-crouch-run (1)_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.5925926}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
