@@ -11,14 +11,12 @@ public class SentryEnemy : Enemy
     public GameObject hitEffect;
 
     private float nextFireTime = 0f;
-    private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Transform player;
     private Animator anim;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
