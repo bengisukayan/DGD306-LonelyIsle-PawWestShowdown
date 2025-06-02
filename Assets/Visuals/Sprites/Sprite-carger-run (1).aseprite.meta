@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 43ea657fccdcb3545814feb56ad73550
+guid: ccc207bdfa5fee64f92abbdf0c256807
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638838074979281228
+  platformSettingsDirtyTick: 638844740184697289
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Sprite-carger-run
+  - name: Sprite-carger-run (1)
     originalName: 
-    pivot: {x: 0.47368422, y: -0.107142866}
+    pivot: {x: 0.44347823, y: -0.007936508}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 114
-      height: 112
-    spriteID: 1b8101c11492842468e3c2c65c9b6039
+      width: 115
+      height: 126
+    spriteID: 508066b54de17644ebf7f060a2156090
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,7 +142,27 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: Sprite-carger-run_0
+  - name: Sprite-carger-run (1)_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 49
+      y: 70
+      width: 70
+      height: 60
+    spriteID: d09b6e1a0f89c5f45a42b23df86f3474
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Sprite-carger-run (1)_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -153,27 +173,7 @@ ScriptedImporter:
       y: 4
       width: 73
       height: 57
-    spriteID: abe33a78cd879f248825e2c15efab212
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Sprite-carger-run_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 48
-      y: 56
-      width: 70
-      height: 60
-    spriteID: b6b774f2a58c3744f98dbf54051f74f6
+    spriteID: dbdda3dde77b8874ca55f1e1f45900de
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -184,21 +184,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: 1620400102
-    name: Sprite-carger-run
+    guid: 524728872
+    name: Sprite-carger-run (1)
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Sprite-carger-run
+    - name: Sprite-carger-run (1)
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 10
-        y: 12
-        width: 114
-        height: 112
-      spriteId: 1b8101c11492842468e3c2c65c9b6039
+        x: 13
+        y: 1
+        width: 115
+        height: 126
+      spriteId: 508066b54de17644ebf7f060a2156090
     linkedCells: []
     parentIndex: -1
   platformSettings:

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 88b98fc4686d27f42b3d7743d59d6d0b
+guid: fc9e9719539892f4cb7c6e693a0d8a39
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638837999138165098
+  platformSettingsDirtyTick: 638844738685664697
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Sprite-props
+  - name: "Sprite-efe-\xE7a\u011Fan-attack"
     originalName: 
-    pivot: {x: 0.54092526, y: -0.055555552}
+    pivot: {x: 0.51369864, y: -0.3090909}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 281
-      height: 198
-    spriteID: c1062fcba451b9c4ead0590f241b2cb0
+      width: 292
+      height: 165
+    spriteID: 74e7580553cd6d84686e367a7ec2975d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,7 +142,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: Sprite-props_1
+  - name: "Sprite-efe-\xE7a\u011Fan-attack_0"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -150,10 +150,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 73
-      width: 176
-      height: 77
-    spriteID: e38d20522cb17c447ac2a018398ca6fb
+      y: 108
+      width: 51
+      height: 61
+    spriteID: 41b634da04778a54195d0ff29fed882d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -162,18 +162,138 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Sprite-props_2
+  - name: "Sprite-efe-\xE7a\u011Fan-attack_2"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 204
+      x: 189
+      y: 106
+      width: 62
+      height: 62
+    spriteID: 2a127f69e7a2f3f40be2bde1d611ff43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "Sprite-efe-\xE7a\u011Fan-attack_4"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 106
+      width: 42
+      height: 50
+    spriteID: 490d4a41e0357d145b13f1b9de568462
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "Sprite-efe-\xE7a\u011Fan-attack_5"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 16
+      width: 33
+      height: 49
+    spriteID: 7af61eed1054623439d31a2767ffaa60
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "Sprite-efe-\xE7a\u011Fan-attack_7"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 185
+      y: 12
+      width: 40
+      height: 51
+    spriteID: 7d1b24cb11218d443805457a51dbb59a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "Sprite-efe-\xE7a\u011Fan-attack_9"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 246
+      y: 12
+      width: 50
+      height: 64
+    spriteID: 82510c51e06ac4d4bb338827971c5d8b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "Sprite-efe-\xE7a\u011Fan-attack_10"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 14
       y: 4
-      width: 68
-      height: 38
-    spriteID: 9e1cdad927e94e34a9fe4d4f1c9d9ad7
+      width: 29
+      height: 49
+    spriteID: 52f2221d2a4262947b8be17e39304aca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "Sprite-efe-\xE7a\u011Fan-attack_11"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 4
+      width: 37
+      height: 47
+    spriteID: 437b3ac69782f8f498431c1b725b322e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -184,21 +304,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: 1259434952
-    name: Sprite-props
+    guid: 1680248410
+    name: "Sprite-efe-\xE7a\u011Fan-attack"
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Sprite-props
+    - name: "Sprite-efe-\xE7a\u011Fan-attack"
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 8
-        y: 11
-        width: 281
-        height: 198
-      spriteId: c1062fcba451b9c4ead0590f241b2cb0
+        x: 10
+        y: 51
+        width: 292
+        height: 165
+      spriteId: 74e7580553cd6d84686e367a7ec2975d
     linkedCells: []
     parentIndex: -1
   platformSettings:
