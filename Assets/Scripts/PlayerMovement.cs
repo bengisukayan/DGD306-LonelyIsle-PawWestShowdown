@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,7 +26,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float defaultMoveSpeed;
 
-    void Start()
+    // Input System
+    private Vector2 moveInput;
+    private bool jumpPressed;
+    private bool crouchPressed;
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -33,43 +39,60 @@ public class PlayerMovement : MonoBehaviour
         health = startingHealth;
     }
 
-    void Update()
+    private void Update()
     {
         if (isDead) return;
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
-        float moveInput = Input.GetAxisRaw("Horizontal");
-        bool jump = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-        bool crouch = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-
-        // Handle Crouch
-        isCrouching = crouch && isGrounded;
+        // Crouch
+        isCrouching = crouchPressed && isGrounded;
         anim.SetBool("Crouch", isCrouching);
 
         // Movement
         if (!isCrouching)
         {
-            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
 
-            if (moveInput != 0)
-                transform.rotation = Quaternion.Euler(0, moveInput > 0 ? 0 : 180, 0);
+            if (moveInput.x != 0)
+                transform.rotation = Quaternion.Euler(0, moveInput.x > 0 ? 0 : 180, 0);
         }
 
         // Jump
-        if (jump && isGrounded)
+        if (jumpPressed && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             anim.SetTrigger("Jump");
+            jumpPressed = false; // Reset jump after using it
         }
 
         // Falling
         isFalling = rb.velocity.y < -0.1f && !isGrounded;
 
         // Animator
-        anim.SetFloat("Speed", Mathf.Abs(moveInput));
+        anim.SetFloat("Speed", Mathf.Abs(moveInput.x));
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetBool("IsFalling", isFalling);
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (!isGrounded) return;
+        if (context.started)
+            jumpPressed = true;
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            crouchPressed = true;
+        else if (context.canceled)
+            crouchPressed = false;
     }
 
     public void TakeDamage(int damage)
@@ -86,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            // Optional knockback
             rb.AddForce(new Vector2(-5f * transform.localScale.x, 5f), ForceMode2D.Impulse);
             StartCoroutine(RecoverFromHurt());
         }

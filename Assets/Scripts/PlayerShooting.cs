@@ -1,11 +1,11 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
     public Transform gunPoint;
-    public float fireRate = 0.2f; // Delay between shots
+    public float fireRate = 0.2f;
 
     public GameObject hitEffect;
     public int damage = 40;
@@ -14,13 +14,23 @@ public class PlayerShooting : MonoBehaviour
     public LayerMask playerLayer;
 
     private float nextFireTime = 0f;
+    private bool shootPressed;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextFireTime)
+        if (shootPressed && Time.time >= nextFireTime)
         {
             StartCoroutine(Shoot());
-            nextFireTime = Time.time + fireRate; // Set cooldown
+            nextFireTime = Time.time + fireRate;
+            shootPressed = false; // Prevent auto-fire on hold
+        }
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            shootPressed = true;
         }
     }
 

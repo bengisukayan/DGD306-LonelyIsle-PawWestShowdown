@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class StartScreen : MonoBehaviour
 {
@@ -10,22 +11,20 @@ public class StartScreen : MonoBehaviour
     public Canvas startCanvas;
 
 
-    void Update()
+    public void OnSubmit(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (context.performed)
         {
             StartGame();
         }
     }
 
     void StartGame() {
-        startAnimator.SetTrigger("PlayStart");
         StartCoroutine(PlayIntroSequence());
     }
 
     IEnumerator PlayIntroSequence() {
-        startAnimator.SetTrigger("PlayStart");
-
+        /*
         yield return new WaitForSeconds(2f); // video length
 
         startCanvas.enabled = false;
@@ -34,7 +33,8 @@ public class StartScreen : MonoBehaviour
         // Wait until the video finishes
         while (videoPlayer.isPlaying)
             yield return null;
-
+        */
+        yield return new WaitForSeconds(1f); // delete later
         SceneManager.LoadScene("Tutorial");
     }
 }

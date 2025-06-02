@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class NPCDialogue : MonoBehaviour
 {
@@ -19,22 +20,24 @@ public class NPCDialogue : MonoBehaviour
     [Header("Event After Dialogue")]
     public UnityEvent onDialogueEnd;
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (!context.started || !playerIsClose) return;
+
+        if (dialoguePanel.activeInHierarchy && _canSkip)
+        {
+            NextLine();
+        }
+        else if (!dialoguePanel.activeInHierarchy)
+        {
+            dialoguePanel.SetActive(true);
+            typingCoroutine = StartCoroutine(Typing());
+        }
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose) //change keycode
-        {
-            if (dialoguePanel.activeInHierarchy && _canSkip)
-            {
-                NextLine();
-            }
-            else if (!dialoguePanel.activeInHierarchy)
-            {
-                dialoguePanel.SetActive(true);
-                typingCoroutine = StartCoroutine(Typing());
-            }
-        }
-
-        if (dialogueText.text == dialogue[_index])
+        if (dialoguePanel.activeInHierarchy && dialogueText.text == dialogue[_index])
         {
             _canSkip = true;
         }
@@ -75,10 +78,9 @@ public class NPCDialogue : MonoBehaviour
                 StopCoroutine(typingCoroutine);
 
             ResetDialogue();
-            onDialogueEnd?.Invoke(); // post-dialogue event
+            onDialogueEnd?.Invoke(); // Trigger post-dialogue event
         }
     }
-
 
     public void LoadNextScene()
     {
