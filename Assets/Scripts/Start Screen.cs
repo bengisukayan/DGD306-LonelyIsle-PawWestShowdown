@@ -3,12 +3,20 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class StartScreen : MonoBehaviour
 {
-    public Animator startAnimator;
     public VideoPlayer videoPlayer;
     public Canvas startCanvas;
+
+    public Image logoImage;
+    public Image bgImage;
+    public TextMeshProUGUI pressStartText;
+
+    public float fadeDuration = 1f;
+    public float tintTransitionDuration = 1f;
 
 
     public void OnSubmit(InputAction.CallbackContext context)
@@ -19,22 +27,47 @@ public class StartScreen : MonoBehaviour
         }
     }
 
-    void StartGame() {
+    void StartGame()
+    {
         StartCoroutine(PlayIntroSequence());
     }
 
-    IEnumerator PlayIntroSequence() {
-        /*
-        yield return new WaitForSeconds(2f); // video length
+    IEnumerator PlayIntroSequence()
+    {
+        float time = 0f;
+        Color logoColor = logoImage.color;
+        Color pressStartColor = pressStartText.color;
+
+        while (time < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, time / fadeDuration);
+            logoImage.color = new Color(logoColor.r, logoColor.g, logoColor.b, alpha);
+            pressStartText.color = new Color(pressStartColor.r, pressStartColor.g, pressStartColor.b, alpha);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        logoImage.color = new Color(logoColor.r, logoColor.g, logoColor.b, 0f);
+        pressStartText.color = new Color(pressStartColor.r, pressStartColor.g, pressStartColor.b, 0f);
+
+        time = 0f;
+        Color startColor = bgImage.color;
+        Color targetColor = Color.white;
+
+        while (time < tintTransitionDuration)
+        {
+            bgImage.color = Color.Lerp(startColor, targetColor, time / tintTransitionDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        bgImage.color = targetColor;
 
         startCanvas.enabled = false;
         videoPlayer.Play();
 
-        // Wait until the video finishes
-        while (videoPlayer.isPlaying)
+        while (videoPlayer.frame < (long)videoPlayer.frameCount - 1)
             yield return null;
-        */
-        yield return new WaitForSeconds(1f); // delete later
+
         SceneManager.LoadScene("Tutorial");
     }
 }
