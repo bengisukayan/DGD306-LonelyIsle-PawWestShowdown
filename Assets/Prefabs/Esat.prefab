@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 2461264876419307462}
   - component: {fileID: 435741035688484447}
   m_Layer: 6
-  m_Name: Player
+  m_Name: Esat
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
