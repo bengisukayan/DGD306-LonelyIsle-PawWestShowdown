@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 198341902}
   - component: {fileID: 198341904}
   m_Layer: 5
-  m_Name: Press Start
+  m_Name: Select Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Start
+  m_text: Select Character
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 742c503f27445174191c611609a5a5ed, type: 2}
   m_sharedMaterial: {fileID: 772354557925613628, guid: 742c503f27445174191c611609a5a5ed, type: 2}
@@ -214,8 +214,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -281,33 +281,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 246328419}
-  - component: {fileID: 246328418}
+  - component: {fileID: 246328420}
   m_Layer: 0
-  m_Name: Start Screen Manager
+  m_Name: Selection Screen Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &246328418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246328417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2b053d5fd7ea9e4fb00c3db8d5ff2ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 787386864}
-  startCanvas: {fileID: 1821321544}
-  logoImage: {fileID: 1362970804}
-  bgImage: {fileID: 996495684}
-  pressStartText: {fileID: 198341902}
-  fadeDuration: 1
-  tintTransitionDuration: 2
 --- !u!4 &246328419
 Transform:
   m_ObjectHideFlags: 0
@@ -323,6 +304,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &246328420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246328417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a713c356d545ce449ec0db355aee91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ada: {fileID: 5546702902886860217, guid: ef4f437c5bda5374b82496e723ad782d, type: 3}
+  esat: {fileID: 5546702902886860217, guid: 1ec04b9d86ca84f43bd6dba0d61f199a, type: 3}
+  adaImage: {fileID: 1573097837}
+  esatImage: {fileID: 738904671}
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  normalColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
 --- !u!1 &310888998
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,9 +444,33 @@ MonoBehaviour:
     m_ActionId: 60f2181f-0d03-4ec6-98e3-a2c605ddb5b2
     m_ActionName: PlayerInput/Walk[/XInputControllerWindows/leftStick,/DualShock4GamepadHID/leftStick,/XInputControllerWindows/dpad,/DualShock4GamepadHID/dpad]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17d80194-4661-4db6-a9ee-f6a92f0ceb19
+    m_ActionName: PlayerInput/Start[/XInputControllerWindows/start,/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eb52f485-871f-4e95-a8d1-62f9b1b43cd6
+    m_ActionName: PlayerInput/Interact[/XInputControllerWindows/buttonWest,/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 246328418}
-        m_TargetAssemblyTypeName: StartScreen, Assembly-CSharp
+      - m_Target: {fileID: 246328420}
+        m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 075acb0a-1d3e-4efd-84f1-7ee373d2d35b
+    m_ActionName: PlayerInput/Move[/DualShock4GamepadHID/dpad]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 246328420}
+        m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
         m_MethodName: OnSubmit
         m_Mode: 0
         m_Arguments:
@@ -458,18 +481,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 17d80194-4661-4db6-a9ee-f6a92f0ceb19
-    m_ActionName: PlayerInput/Start[/XInputControllerWindows/start,/DualShock4GamepadHID/start]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: eb52f485-871f-4e95-a8d1-62f9b1b43cd6
-    m_ActionName: PlayerInput/Interact[/XInputControllerWindows/buttonWest,/DualShock4GamepadHID/buttonWest]
+    m_ActionId: 51a12cba-c1b6-4040-a591-62070a2b3630
+    m_ActionName: PlayerInput/Submit[/DualShock4GamepadHID/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1865047336}
---- !u!1 &787386863
+--- !u!1 &738904669
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -477,66 +496,73 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 787386865}
-  - component: {fileID: 787386864}
-  m_Layer: 0
-  m_Name: Video Player
+  - component: {fileID: 738904670}
+  - component: {fileID: 738904672}
+  - component: {fileID: 738904671}
+  m_Layer: 5
+  m_Name: Esat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!328 &787386864
-VideoPlayer:
+--- !u!224 &738904670
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787386863}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 83599afa8670dec42b5222db2b1ff1f3, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 1865047336}
-  m_TargetTexture: {fileID: 8400000, guid: f084e73b0d6b59b49903e715bcc0cd0f, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 1
-  m_AspectRatio: 1
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: '"D:\Program Files\Unity Hub\Unity Projects\DGD306-LonelyIsle-PawWestShowdown\Assets\Visuals\Cutscenes\Intro.mp4"'
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 0
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
---- !u!4 &787386865
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787386863}
-  serializedVersion: 2
+  m_GameObject: {fileID: 738904669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 272.134, y: 258.54837, z: -0.38623375}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1821321545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 250, y: 50}
+  m_SizeDelta: {x: 200, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &738904671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738904669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1433906954941233178, guid: 9301962b28f8c7547b052232558c75c9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &738904672
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738904669}
+  m_CullTransparentMesh: 1
 --- !u!1 &996495682
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,14 +613,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1993822373834501260, guid: c26763d6f3f5d8347a7f1a06fee3ba96, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34ebbae70b117d04f9f9a3eca55f6562, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -612,7 +638,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996495682}
   m_CullTransparentMesh: 1
---- !u!1 &1362970802
+--- !u!1 &1573097835
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -620,42 +646,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1362970803}
-  - component: {fileID: 1362970805}
-  - component: {fileID: 1362970804}
+  - component: {fileID: 1573097836}
+  - component: {fileID: 1573097838}
+  - component: {fileID: 1573097837}
   m_Layer: 5
-  m_Name: Logo
+  m_Name: Ada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1362970803
+--- !u!224 &1573097836
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362970802}
+  m_GameObject: {fileID: 1573097835}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1821321545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -125}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -250, y: 50}
+  m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1362970804
+--- !u!114 &1573097837
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362970802}
+  m_GameObject: {fileID: 1573097835}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -669,7 +695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9152649728939694571, guid: 0ba0fb4f66998cc49bbe9c3049137b1a, type: 3}
+  m_Sprite: {fileID: -2748076379507763110, guid: f7ec22a80e1480b4a85ff8c556928c38, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -679,13 +705,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1362970805
+--- !u!222 &1573097838
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362970802}
+  m_GameObject: {fileID: 1573097835}
   m_CullTransparentMesh: 1
 --- !u!1 &1821321541
 GameObject:
@@ -782,8 +808,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 996495683}
-  - {fileID: 1362970803}
   - {fileID: 198341901}
+  - {fileID: 738904670}
+  - {fileID: 1573097836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -891,4 +918,3 @@ SceneRoots:
   - {fileID: 1821321545}
   - {fileID: 310889001}
   - {fileID: 246328419}
-  - {fileID: 787386865}
