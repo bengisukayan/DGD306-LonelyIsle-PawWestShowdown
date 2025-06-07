@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -20,7 +21,10 @@ public abstract class Enemy : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
-        ScoreManager.Instance.AddScore(100);
+        if (SceneManager.GetActiveScene().name != "Tutorial")
+        {
+            ScoreManager.Instance.AddScore(100);
+        }
         //AudioManager.Instance.PlaySound("EnemyDeath");
         Destroy(gameObject);
     }
