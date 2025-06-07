@@ -318,7 +318,7 @@ BoxCollider2D:
   m_Offset: {x: -0.0058345348, y: -0.0039810985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.52311707}
+    pivot: {x: 0.5, y: 0.5198578}
     oldSize: {x: 0.24, y: 0.31}
     newSize: {x: 0.24, y: 0.31}
     adaptiveTilingThreshold: 0.5
@@ -411,7 +411,7 @@ BoxCollider2D:
   m_Offset: {x: -0.0058345348, y: -0.0045818985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.52311707}
+    pivot: {x: 0.5, y: 0.5198578}
     oldSize: {x: 0.24, y: 0.31}
     newSize: {x: 0.24, y: 0.31}
     adaptiveTilingThreshold: 0.5
@@ -539,6 +539,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: eb52f485-871f-4e95-a8d1-62f9b1b43cd6
     m_ActionName: PlayerInput/Interact[/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 51a12cba-c1b6-4040-a591-62070a2b3630
+    m_ActionName: PlayerInput/Submit[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 075acb0a-1d3e-4efd-84f1-7ee373d2d35b
+    m_ActionName: PlayerInput/Move[/DualShock4GamepadHID/dpad]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput
