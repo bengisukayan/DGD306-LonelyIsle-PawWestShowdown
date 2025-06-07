@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1063096932658687415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.069, y: -0.028, z: 0}
+  m_LocalPosition: {x: 0.355, y: -0.147, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -315,18 +315,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0058345348, y: -0.0039810985}
+  m_Offset: {x: -0.08616564, y: -0.02318409}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.516129}
-    oldSize: {x: 0.24, y: 0.31}
+    oldSize: {x: 1.2, y: 1.55}
     newSize: {x: 0.33, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15656292, y: 0.31323543}
+  m_Size: {x: 0.9003692, y: 1.553632}
   m_EdgeRadius: 0
 --- !u!50 &6571289562870119593
 Rigidbody2D:
@@ -408,18 +408,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0058345348, y: -0.0045818985}
+  m_Offset: {x: -0.08319035, y: -0.023784965}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.516129}
-    oldSize: {x: 0.24, y: 0.31}
+    oldSize: {x: 1.2, y: 1.55}
     newSize: {x: 0.33, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15781188, y: 0.31283826}
+  m_Size: {x: 0.8956676, y: 1.553235}
   m_EdgeRadius: 0
 --- !u!114 &2461264876419307462
 MonoBehaviour:
@@ -539,6 +539,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: eb52f485-871f-4e95-a8d1-62f9b1b43cd6
     m_ActionName: PlayerInput/Interact[/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 51a12cba-c1b6-4040-a591-62070a2b3630
+    m_ActionName: PlayerInput/Submit[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 075acb0a-1d3e-4efd-84f1-7ee373d2d35b
+    m_ActionName: PlayerInput/Move[/DualShock4GamepadHID/dpad]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput
@@ -569,7 +577,7 @@ Transform:
   m_GameObject: {fileID: 8741475055397544203}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1555, z: 0}
+  m_LocalPosition: {x: 0, y: -0.798, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
