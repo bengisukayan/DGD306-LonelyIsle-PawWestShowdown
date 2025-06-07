@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 8151198922665586997}
   - component: {fileID: 1239292678520159754}
   - component: {fileID: 393670741095407158}
-  - component: {fileID: 6083048195549177639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.779, y: -0.56, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -253,20 +252,16 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: eb52f485-871f-4e95-a8d1-62f9b1b43cd6
     m_ActionName: PlayerInput/Interact[/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 51a12cba-c1b6-4040-a591-62070a2b3630
+    m_ActionName: PlayerInput/Submit[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 075acb0a-1d3e-4efd-84f1-7ee373d2d35b
+    m_ActionName: PlayerInput/Move[/DualShock4GamepadHID/dpad]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6083048195549177639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3624828191805640954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04c91508a6be4c42b1549acba3cf7ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

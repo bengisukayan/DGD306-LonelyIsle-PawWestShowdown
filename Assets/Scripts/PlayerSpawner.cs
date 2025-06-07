@@ -12,6 +12,7 @@ public class PlayerSpawner : MonoBehaviour
         {
             GameObject player = Instantiate(CharacterSelection.selectedCharacterPrefab, spawnPoint.position, Quaternion.identity);
             virtualCamera.Follow = player.transform;
+            player.transform.localScale = Vector3.one * 5;
         }
     }
 }

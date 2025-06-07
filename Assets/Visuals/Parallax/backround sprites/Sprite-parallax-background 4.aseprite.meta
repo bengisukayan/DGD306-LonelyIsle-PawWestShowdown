@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a7886117ee07d8049bdab8ac357b3af7
+guid: fe563d23b82fe4e4f8d6b4f11d9b3f46
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -71,7 +71,7 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -84,7 +84,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638833001020698104
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: logo
+  - name: Sprite-parallax-background 4
     originalName: 
-    pivot: {x: 0.48299325, y: -0.46923077}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 147
-      height: 130
-    spriteID: d418f8950abf8a14e98d455040677ea3
+      width: 320
+      height: 131
+    spriteID: 63e3bd324bdcb9e48a40eee5bdcc4482
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,44 +141,24 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  spriteSheetImportData:
-  - name: logo_0
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 147
-      height: 130
-    spriteID: 2fb897021a927834280088228ddf9737
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+  spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 573929403
-    name: logo
+    guid: 1354003484
+    name: Sprite-parallax-background 4
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: logo
+    - name: Sprite-parallax-background 4
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 89
-        y: 61
-        width: 147
-        height: 130
-      spriteId: d418f8950abf8a14e98d455040677ea3
+        x: 0
+        y: 0
+        width: 320
+        height: 131
+      spriteId: 63e3bd324bdcb9e48a40eee5bdcc4482
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -189,30 +169,6 @@ ScriptedImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
