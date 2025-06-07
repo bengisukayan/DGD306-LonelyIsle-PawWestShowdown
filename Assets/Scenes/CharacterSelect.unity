@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 738904670}
   - component: {fileID: 738904672}
   - component: {fileID: 738904671}
+  - component: {fileID: 738904673}
   m_Layer: 5
   m_Name: Esat
   m_TagString: Untagged
@@ -563,6 +564,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738904669}
   m_CullTransparentMesh: 1
+--- !u!114 &738904673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738904669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a1900d1404aac4c95b68e2b94ebc39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTransform: {fileID: 738904670}
+  pulseSpeed: 1.8
+  pulseAmount: 0.01
 --- !u!1 &996495682
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +665,7 @@ GameObject:
   - component: {fileID: 1573097836}
   - component: {fileID: 1573097838}
   - component: {fileID: 1573097837}
+  - component: {fileID: 1573097839}
   m_Layer: 5
   m_Name: Ada
   m_TagString: Untagged
@@ -713,6 +730,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573097835}
   m_CullTransparentMesh: 1
+--- !u!114 &1573097839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573097835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a1900d1404aac4c95b68e2b94ebc39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTransform: {fileID: 1573097836}
+  pulseSpeed: 1.8
+  pulseAmount: 0.01
 --- !u!1 &1821321541
 GameObject:
   m_ObjectHideFlags: 0

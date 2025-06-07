@@ -68,6 +68,6 @@ public class StartScreen : MonoBehaviour
         while (videoPlayer.frame < (long)videoPlayer.frameCount - 1)
             yield return null;
 
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("CharacterSelect");
     }
 }
