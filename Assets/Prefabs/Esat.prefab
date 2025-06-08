@@ -344,7 +344,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 07d632fa040d5f044a21991fae823827, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -545,8 +545,8 @@ MonoBehaviour:
     m_ActionName: PlayerInput/Submit[/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 075acb0a-1d3e-4efd-84f1-7ee373d2d35b
-    m_ActionName: PlayerInput/Move[/DualShock4GamepadHID/dpad]
+    m_ActionId: 9446a3d9-11ef-455a-860b-c6d97488bea1
+    m_ActionName: PlayerInput/Navigate[/DualShock4GamepadHID/dpad]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput

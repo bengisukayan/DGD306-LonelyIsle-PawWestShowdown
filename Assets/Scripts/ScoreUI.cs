@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ScoreUI : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class ScoreUI : MonoBehaviour
     }
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Credits" ||
+            SceneManager.GetActiveScene().name == "ScoreScreen")
+            return;
         scoreText.text = "Score: " + ScoreManager.Instance.CurrentScore.ToString();
         lives.text = "X" + FindObjectOfType<PlayerMovement>().lives.ToString();
     }

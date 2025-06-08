@@ -389,7 +389,7 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 78945db983388904d9132995715f4850, type: 3}
   m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: 0}
+  m_MoveAction: {fileID: -3638006715284912021, guid: 78945db983388904d9132995715f4850, type: 3}
   m_SubmitAction: {fileID: 2248294324199176616, guid: 78945db983388904d9132995715f4850, type: 3}
   m_CancelAction: {fileID: 0}
   m_LeftClickAction: {fileID: 0}
@@ -455,22 +455,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 246328420}
         m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 075acb0a-1d3e-4efd-84f1-7ee373d2d35b
-    m_ActionName: PlayerInput/Move[/DualShock4GamepadHID/dpad]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 246328420}
-        m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
         m_MethodName: OnSubmit
         m_Mode: 0
         m_Arguments:
@@ -483,6 +467,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 51a12cba-c1b6-4040-a591-62070a2b3630
     m_ActionName: PlayerInput/Submit[/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 246328420}
+        m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9446a3d9-11ef-455a-860b-c6d97488bea1
+    m_ActionName: PlayerInput/Navigate[/DualShock4GamepadHID/dpad]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput

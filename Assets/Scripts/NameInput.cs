@@ -1,7 +1,8 @@
 using TMPro;
 using UnityEngine;
-using System.Collections;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class NameInput : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class NameInput : MonoBehaviour
     private float blinkInterval = 0.5f;
     private bool blinkOn = true;
 
-    void Start()
+    private bool canNavigate = true;
+
+    private void Start()
     {
         if (scoreText != null)
             scoreText.text = "Score: " + ScoreManager.Instance.CurrentScore.ToString();
@@ -23,42 +26,56 @@ public class NameInput : MonoBehaviour
         UpdateNameDisplay();
     }
 
-    void Update()
+    public void OnMove(InputAction.CallbackContext context)
     {
+        if (!context.performed || !canNavigate) return;
+
+        Vector2 input = context.ReadValue<Vector2>();
         bool changed = false;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (input.x > 0.5f)
         {
             currentLetter = (currentLetter + 1) % 4;
             changed = true;
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (input.x < -0.5f)
         {
             currentLetter = (currentLetter - 1 + 4) % 4;
             changed = true;
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (input.y > 0.5f)
         {
-            userName[currentLetter] = (char)(((userName[currentLetter] - 'A' + 25) % 26) + 'A');
+            userName[currentLetter] = (char)(((userName[currentLetter] - 'A' + 25) % 26) + 'A'); // Up
             changed = true;
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (input.y < -0.5f)
         {
-            userName[currentLetter] = (char)(((userName[currentLetter] - 'A' + 1) % 26) + 'A');
+            userName[currentLetter] = (char)(((userName[currentLetter] - 'A' + 1) % 26) + 'A'); // Down
             changed = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            SubmitName();
         }
 
         if (changed)
         {
             UpdateNameDisplay();
+            StartCoroutine(NavigationCooldown());
         }
     }
 
-    IEnumerator BlinkSelectedLetter()
+    public void OnSubmit(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        SubmitName();
+    }
+
+    private IEnumerator NavigationCooldown()
+    {
+        canNavigate = false;
+        yield return new WaitForSeconds(0.2f);
+        canNavigate = true;
+    }
+
+    private IEnumerator BlinkSelectedLetter()
     {
         while (true)
         {
@@ -68,7 +85,7 @@ public class NameInput : MonoBehaviour
         }
     }
 
-    void UpdateNameDisplay()
+    private void UpdateNameDisplay()
     {
         string display = "";
         for (int i = 0; i < userName.Length; i++)

@@ -69,9 +69,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Move",
+                    "name": "Navigate",
                     "type": "Value",
-                    "id": "075acb0a-1d3e-4efd-84f1-7ee373d2d35b",
+                    "id": "9446a3d9-11ef-455a-860b-c6d97488bea1",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -87,17 +87,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "09a10c5a-b106-432e-a286-84ca3f143f1e",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -120,17 +109,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fadf1116-a966-4cff-b2c3-5be36bebe66f",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Walk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -180,12 +158,12 @@
                 },
                 {
                     "name": "",
-                    "id": "813796f4-0b42-45fd-83da-fe7b372bb686",
+                    "id": "09907eec-c7de-4cea-8604-cf66c1f19ee7",
                     "path": "<Gamepad>/dpad",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
