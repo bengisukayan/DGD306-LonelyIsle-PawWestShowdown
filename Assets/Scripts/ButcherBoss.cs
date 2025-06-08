@@ -65,7 +65,7 @@ public class ButcherBoss : Enemy
 
         spriteRenderer.flipX = direction.x > 0;
 
-        if (distance > 1.5f)
+        if (distance > 3f)
         {
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
             anim.SetBool("isRunning", true);

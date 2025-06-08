@@ -102,9 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 500
   deathEffect: {fileID: 7672137276334979773, guid: a5b976be8e873ae4a94a33d097848958, type: 3}
-  detectionRadius: 15
+  detectionRadius: 10
   speed: 3
-  jumpForce: 5
+  jumpForce: 10
   attackCooldown: 2
   dazedDuration: 3
   damage: 30
@@ -164,7 +164,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3315881, y: -0.10219765}
+  m_Offset: {x: -0.37533522, y: -0.08275449}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -175,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.616635, y: 2.8757715}
+  m_Size: {x: 1.1986055, y: 2.7785556}
   m_EdgeRadius: 0
 --- !u!50 &7050836769969730173
 Rigidbody2D:

@@ -15,15 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level 1111.unity
-    guid: 8c8013e39a388f8419de8688418fab9a
+    path: Assets/Scenes/Credits.unity
+    guid: af58bf7a6c185854393ae50f56d09bbb
   - enabled: 1
     path: Assets/Scenes/ScoreScreen.unity
     guid: 16f706f8063695a44a75a90f78a80d2d
   - enabled: 1
     path: Assets/Scenes/ScoreList.unity
     guid: 14cdcfcd81ee9b341a3e5f2e256b3877
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: af58bf7a6c185854393ae50f56d09bbb
   m_configObjects: {}

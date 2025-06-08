@@ -89,10 +89,6 @@ public class NPCDialogue : MonoBehaviour
         {
             SceneManager.LoadScene(nextSceneIndex);
         }
-        else
-        {
-            Debug.LogWarning("No next scene set in Build Settings!");
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
