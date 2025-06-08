@@ -56,6 +56,7 @@ public class ProjectileBoss : Enemy
             var proj = Instantiate(projectilePrefab, selfPoint.position, Quaternion.identity);
             var p = proj.GetComponent<Projectile>();
             p.Init(Vector2.down, null); // No callback needed
+            yield return new WaitForSeconds(0.65f);
             TakeDamage(damageIfMissed);
         }
 
