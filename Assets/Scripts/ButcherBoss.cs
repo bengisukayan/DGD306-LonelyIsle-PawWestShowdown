@@ -31,6 +31,8 @@ public class ButcherBoss : Enemy
 
     private void Update()
     {
+        anim.SetBool("isFalling", !isGrounded && rb.velocity.y < -0.1f);
+
         if (isDazed)
         {
             rb.velocity = Vector2.zero;
