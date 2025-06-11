@@ -14649,6 +14649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8528979901502811933, guid: e883310fb41c9eb4382dfb1df2cb3588, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -24,7 +24,7 @@ public abstract class Enemy : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Godfather")
         {
             ScoreManager.Instance.AddScore(500);
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene("Level 2");
         }
         else if (SceneManager.GetActiveScene().name == "Butcher")
         {
