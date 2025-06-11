@@ -1702,7 +1702,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 783509682}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 07d632fa040d5f044a21991fae823827, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -11179,6 +11179,26 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 372931812}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Awesome! Awesome!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Going already?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Be careful out there...
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: You only have nine lives too, after all.
+      objectReference: {fileID: 0}
     - target: {fileID: 3624828191805640954, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
       propertyPath: m_Name
       value: NPC (3)
@@ -11585,6 +11605,30 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 372931812}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Ooooooh! Sooooo shiny!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Does that really work?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: See the weirdo in the red pantsies?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: Shoot him, shooot hiiimmm!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: onDialogueEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3624828191805640954, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
       propertyPath: m_Name
       value: NPC (2)
@@ -11739,7 +11783,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1428500624}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 07d632fa040d5f044a21991fae823827, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14023,6 +14067,30 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 372931812}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Awesome!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Jump for me!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Jump!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: bengis
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: onDialogueEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3624828191805640954, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
       propertyPath: m_Name
       value: NPC (1)
@@ -14403,6 +14471,34 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 372931812}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Meowsies! You look so cool, cowcat!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: What am I doing?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Not doing much... They took my meat!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: You will help me? How brave!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: dialogue.Array.data[4]
+      value: You will help me? How brave!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
+      propertyPath: onDialogueEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3624828191805640954, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -14545,6 +14641,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4007310485293918397, guid: e883310fb41c9eb4382dfb1df2cb3588, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5639720569111510422, guid: 551354fbf6206a0418abf9f4ea760ba7, type: 3}
     - target: {fileID: 8528979901502811933, guid: e883310fb41c9eb4382dfb1df2cb3588, type: 3}
       propertyPath: m_Name
       value: NPCCanvas
