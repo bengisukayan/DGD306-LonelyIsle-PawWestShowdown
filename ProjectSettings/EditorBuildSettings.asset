@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 3d269ea541174f348a5b81b060739c68
   - enabled: 1
+    path: Assets/Scenes/Godfather.unity
+    guid: 818379be22c36764d9118e4aded02cd4
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 543943fbddc67024a854821884bf4736
+  - enabled: 1
+    path: Assets/Scenes/Butcher.unity
+    guid: ab0f7498521290b4ea79a21f4c43fea5
+  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: af58bf7a6c185854393ae50f56d09bbb
   - enabled: 1
