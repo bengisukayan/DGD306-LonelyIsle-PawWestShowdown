@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public float respawnDelay = 3f;
+    public bool canShoot = true;
 
     [Header("Ground Detection")]
     public LayerMask groundLayer;
@@ -125,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isDead = true;
         moveSpeed = 0;
+        canShoot = false;
         anim.SetTrigger("Die");
 
         lives--;
@@ -148,5 +150,6 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = defaultMoveSpeed;
         rb.velocity = Vector2.zero;
         transform.position = Vector2.zero;
+        canShoot = true;
     }
 }

@@ -226,9 +226,34 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lonely Isle\n\nGraphic Design\nAda Akcan\n\nSound Design\nEsat Ozturk\n\nGame
-    Development\nBengisu Kayan\n\xC7agan Erdem Ustundag\n\nThank you!\n\n\n\nTHE
-    END"
+  m_text: 'Lonely Isle
+
+
+    Graphic Design
+
+    Ada Akcan
+
+
+    Sound Design
+
+    Esat
+    Ozturk
+
+
+    Game Development
+
+    Bengisu Kayan
+
+    Cagan Erdem Ustundag
+
+
+    Thank
+    you!
+
+
+
+
+    THE END'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 742c503f27445174191c611609a5a5ed, type: 2}
   m_sharedMaterial: {fileID: 772354557925613628, guid: 742c503f27445174191c611609a5a5ed, type: 2}
