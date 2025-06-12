@@ -15,6 +15,8 @@ public class NPCDialogue : MonoBehaviour
 
     private int _index;
     private bool _canSkip = false;
+    private bool _hasSceneChanged = false;
+
     private Coroutine typingCoroutine;
 
     [Header("Event After Dialogue")]
@@ -84,6 +86,7 @@ public class NPCDialogue : MonoBehaviour
 
     public void LoadNextScene()
     {
+        _hasSceneChanged = true;
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -101,6 +104,7 @@ public class NPCDialogue : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (_hasSceneChanged) return;
         if (collision.CompareTag("Player"))
         {
             playerIsClose = false;

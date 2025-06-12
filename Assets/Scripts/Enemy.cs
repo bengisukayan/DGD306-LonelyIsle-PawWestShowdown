@@ -15,16 +15,27 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
         if (deathEffect != null)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
-        if (SceneManager.GetActiveScene().name != "Tutorial")
+        if (SceneManager.GetActiveScene().name == "Godfather")
+        {
+            ScoreManager.Instance.AddScore(500);
+            SceneManager.LoadScene("Level 2");
+        }
+        else if (SceneManager.GetActiveScene().name == "Butcher")
+        {
+            ScoreManager.Instance.AddScore(1000);
+            SceneManager.LoadScene("Credits");
+        }
+        else if (SceneManager.GetActiveScene().name != "Tutorial")
         {
             ScoreManager.Instance.AddScore(100);
         }
+
         //AudioManager.Instance.PlaySound("EnemyDeath");
         Destroy(gameObject);
     }
