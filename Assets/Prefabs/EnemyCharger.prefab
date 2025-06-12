@@ -123,11 +123,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   deathEffect: {fileID: 7672137276334979773, guid: a5b976be8e873ae4a94a33d097848958, type: 3}
-  detectionRadius: 0
-  attackRange: 0
-  speed: 0
-  attackCooldown: 1000
-  damage: 0
+  detectionRadius: 5
+  attackRange: 1.5
+  speed: 10
+  attackCooldown: 3
+  damage: 20
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

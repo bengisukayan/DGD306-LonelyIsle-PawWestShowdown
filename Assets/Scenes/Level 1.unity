@@ -20101,26 +20101,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355930427}
     m_Modifications:
-    - target: {fileID: 2381718535042458458, guid: 0b4e18feff795af42a047b4628a81f39, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2381718535042458458, guid: 0b4e18feff795af42a047b4628a81f39, type: 3}
-      propertyPath: damage
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2381718535042458458, guid: 0b4e18feff795af42a047b4628a81f39, type: 3}
-      propertyPath: attackRange
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2381718535042458458, guid: 0b4e18feff795af42a047b4628a81f39, type: 3}
-      propertyPath: attackCooldown
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2381718535042458458, guid: 0b4e18feff795af42a047b4628a81f39, type: 3}
-      propertyPath: detectionRadius
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2548883982898007896, guid: 0b4e18feff795af42a047b4628a81f39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.6665
