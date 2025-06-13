@@ -125,6 +125,17 @@
                 },
                 {
                     "name": "",
+                    "id": "45408961-671d-4807-afd4-53e2a0162d22",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f7f858be-37e4-44cf-83e0-fb1a8bab0372",
                     "path": "<Gamepad>/start",
                     "interactions": "",
