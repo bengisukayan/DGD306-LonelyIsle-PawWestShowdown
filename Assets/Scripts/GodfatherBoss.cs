@@ -14,10 +14,14 @@ public class ProjectileBoss : Enemy
     private float nextAttackTime = 0f;
     private bool awaitingDamage = false;
 
+    private AudioSource godfatherAudioSource;
+    public AudioClip cast;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("isIdle", true); // Start in idle state
+        godfatherAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -33,6 +37,7 @@ public class ProjectileBoss : Enemy
     {
         anim.SetBool("isIdle", false);
         anim.SetTrigger("Attack");
+        godfatherAudioSource.PlayOneShot(cast);
 
         awaitingDamage = true;
 

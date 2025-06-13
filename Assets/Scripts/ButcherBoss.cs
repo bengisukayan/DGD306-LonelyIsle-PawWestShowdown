@@ -18,7 +18,7 @@ public class ButcherBoss : Enemy
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
-    private AudioSource audioSource;
+    private AudioSource butcherAudioSource;
 
     private bool isGrounded = true;
     private bool isDazed = false;
@@ -31,7 +31,7 @@ public class ButcherBoss : Enemy
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
+        butcherAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -80,8 +80,8 @@ public class ButcherBoss : Enemy
             rb.velocity = new Vector2(0, jumpForce);
             anim.SetTrigger("Jump");
 
-            if (attackSound != null && audioSource != null)
-                audioSource.PlayOneShot(attackSound);
+            if (attackSound != null && butcherAudioSource != null)
+                butcherAudioSource.PlayOneShot(attackSound);
 
             nextAttackTime = Time.time + attackCooldown;
             isGrounded = false;

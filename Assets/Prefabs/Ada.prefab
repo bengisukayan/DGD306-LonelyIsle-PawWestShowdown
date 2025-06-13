@@ -440,7 +440,7 @@ MonoBehaviour:
   fireRate: 0.2
   hitEffect: {fileID: 6441532338112503363, guid: c636b7ab11ca60240adf382e742937de, type: 3}
   damage: 30
-  range: 15
+  range: 10
   lineRenderer: {fileID: 2909031729912045346}
   playerLayer:
     serializedVersion: 2
