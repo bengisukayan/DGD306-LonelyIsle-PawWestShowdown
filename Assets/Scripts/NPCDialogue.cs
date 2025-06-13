@@ -24,6 +24,7 @@ public class NPCDialogue : MonoBehaviour
     public UnityEvent onDialogueEnd;
     public VideoPlayer cutsceneVideo;
     public List<GameObject> objectsToHideDuringCutscene;
+    public AudioSource audioSource;
 
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -121,6 +122,8 @@ public class NPCDialogue : MonoBehaviour
             if (obj != null)
                 obj.SetActive(!hide);
         }
+        audioSource.enabled = false;
+
     }
     
     private void LoadSceneDirectly()

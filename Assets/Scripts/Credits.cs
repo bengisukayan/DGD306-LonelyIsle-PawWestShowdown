@@ -28,4 +28,9 @@ public class Credits : MonoBehaviour
             SceneManager.LoadScene(nextSceneIndex);
         }
     }
+
+    public void ReturnToStart()
+    {
+        SceneManager.LoadScene("StartScreen");
+    }
 }

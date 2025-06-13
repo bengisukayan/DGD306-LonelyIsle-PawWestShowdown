@@ -2,44 +2,43 @@ using UnityEngine;
 
 public class SentryEnemy : Enemy
 {
+    [Header("Sentry Settings")]
     public float detectionRadius = 10f;
     public float fireRate = 1f;
     public int damage = 10;
     public LayerMask playerLayer;
 
+    [Header("Visuals & Effects")]
     public LineRenderer lineRenderer;
     public GameObject hitEffect;
+
+    [Header("Audio")]
+    public AudioClip shoot;
 
     private float nextFireTime = 0f;
     private SpriteRenderer spriteRenderer;
     private Transform player;
     private Animator anim;
 
-    public AudioClip shoot;
-    private AudioSource audioSource;
-
-    private void Start()
+    protected override void Start()
     {
+        base.Start();  // initializes protected audioSource
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
 
-    void Update()
+    private void Update()
     {
-        bool isPlayerDetected = PlayerInSight();
-
-        if (!isPlayerDetected)
+        bool detected = PlayerInSight();
+        if (!detected)
         {
             player = FindPlayerInDetectionRadius();
-            isPlayerDetected = player != null;
+            detected = player != null;
         }
 
-        if (isPlayerDetected && player != null)
+        if (detected && player != null)
         {
             anim.SetBool("isIdle", false);
-
-            // Face the player
             spriteRenderer.flipX = player.position.x > transform.position.x;
 
             if (Time.time >= nextFireTime)
@@ -55,67 +54,63 @@ public class SentryEnemy : Enemy
         }
     }
 
-    bool PlayerInSight()
+    private bool PlayerInSight()
     {
         if (player == null) return false;
+        float dist = Vector2.Distance(transform.position, player.position);
+        if (dist > detectionRadius) return false;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distanceToPlayer > detectionRadius) return false;
-
-        Vector2 directionToPlayer = (player.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, detectionRadius, playerLayer);
-
-        Debug.DrawRay(transform.position, directionToPlayer * detectionRadius,
+        Vector2 dir = (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, detectionRadius, playerLayer);
+        Debug.DrawRay(transform.position, dir * detectionRadius,
             (hit.collider != null && hit.collider.CompareTag("Player")) ? Color.green : Color.red);
-
         return hit.collider != null && hit.collider.CompareTag("Player");
     }
 
     private Transform FindPlayerInDetectionRadius()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, playerLayer);
-        foreach (Collider2D collider in hitColliders)
+        foreach (var col in Physics2D.OverlapCircleAll(transform.position, detectionRadius, playerLayer))
         {
-            if (collider.CompareTag("Player"))
+            if (col.CompareTag("Player"))
             {
-                Vector2 directionToPlayer = (collider.transform.position - transform.position).normalized;
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, detectionRadius, playerLayer);
-
-                if (hit.collider == collider)
-                {
-                    return collider.transform;
-                }
+                Vector2 dir = (col.transform.position - transform.position).normalized;
+                var ray = Physics2D.Raycast(transform.position, dir, detectionRadius, playerLayer);
+                if (ray.collider == col)
+                    return col.transform;
             }
         }
         return null;
     }
 
-    void ShootRay()
+    private void ShootRay()
     {
         if (player == null) return;
 
-        Vector2 direction = (player.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRadius, playerLayer);
+        Vector2 dir = (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, detectionRadius, playerLayer);
 
         lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, hit.collider ? hit.point : transform.position + (Vector3)direction * detectionRadius);
-        audioSource.PlayOneShot(shoot);
+        lineRenderer.SetPosition(1, hit.collider ? hit.point : (Vector2)transform.position + dir * detectionRadius);
 
+        // play shoot SFX
+        if (audioSource != null && shoot != null)
+            audioSource.PlayOneShot(shoot);
+
+        // damage
         if (hit.collider != null && hit.collider.CompareTag("Player") &&
-            hit.collider.TryGetComponent<PlayerMovement>(out var playerScript))
+            hit.collider.TryGetComponent<PlayerMovement>(out var pm))
         {
-            playerScript.TakeDamage(damage);
+            pm.TakeDamage(damage);
         }
 
-        if (hit.collider != null && hitEffect)
-        {
+        // VFX
+        if (hit.collider != null && hitEffect != null)
             Instantiate(hitEffect, hit.point, Quaternion.identity);
-        }
 
         StartCoroutine(ShowLine());
     }
 
-    System.Collections.IEnumerator ShowLine()
+    private System.Collections.IEnumerator ShowLine()
     {
         lineRenderer.enabled = true;
         yield return new WaitForSeconds(0.05f);

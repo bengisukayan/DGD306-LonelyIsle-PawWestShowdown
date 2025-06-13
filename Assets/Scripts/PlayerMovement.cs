@@ -64,19 +64,28 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
 
+            if (isGrounded && Mathf.Abs(moveInput.x) > 0.1f)
+            {
+                if (audioSource.clip != walkSound || !audioSource.isPlaying)
+                {
+                    audioSource.clip = walkSound;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                if (audioSource.loop && audioSource.isPlaying && audioSource.clip == walkSound)
+                    audioSource.Stop();
+                audioSource.loop = false;
+            }
+
             if (moveInput.x != 0)
             {
                 transform.rotation = Quaternion.Euler(0, moveInput.x > 0 ? 0 : 180, 0);
-
-                // Play walking sound if grounded and enough time has passed
-                if (isGrounded && Time.time - lastWalkSoundTime > walkSoundCooldown)
-                {
-                    if (walkSound != null)
-                        audioSource.PlayOneShot(walkSound);
-                    lastWalkSoundTime = Time.time;
-                }
             }
         }
+
 
         // Jump
         if (jumpPressed && isGrounded)

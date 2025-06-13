@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ChargerEnemy : Enemy
 {
+    [Header("Charger Settings")]
     public float detectionRadius = 10f;
     public float attackRange = 1.2f;
     public float speed = 5f;
@@ -9,27 +10,26 @@ public class ChargerEnemy : Enemy
     public int damage = 20;
     public LayerMask playerLayer;
 
+    [Header("Audio")]
+    public AudioClip slapSound;
+
     private Transform player;
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
     private float nextAttackTime = 0f;
 
-    public AudioClip slapSound;
-    private AudioSource audioSource;
-
-    private void Start()
+    protected override void Start()
     {
+        base.Start();  // initializes protected audioSource
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         bool playerDetected = PlayerInSight();
-
         if (!playerDetected)
         {
             player = FindPlayerInDetectionRadius();
@@ -38,21 +38,19 @@ public class ChargerEnemy : Enemy
 
         if (playerDetected && player != null)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            float distance = Vector2.Distance(transform.position, player.position);
+            Vector2 dir = (player.position - transform.position).normalized;
+            float dist = Vector2.Distance(transform.position, player.position);
 
-            // Face the player
-            spriteRenderer.flipX = direction.x > 0;
+            // Face
+            spriteRenderer.flipX = dir.x > 0;
 
-            if (distance > attackRange)
+            if (dist > attackRange)
             {
-                // Run toward player
-                rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+                rb.velocity = new Vector2(dir.x * speed, rb.velocity.y);
                 anim.SetBool("isRunning", true);
             }
             else
             {
-                // Stop and attack
                 rb.velocity = Vector2.zero;
                 anim.SetBool("isRunning", false);
 
@@ -66,23 +64,21 @@ public class ChargerEnemy : Enemy
         }
         else
         {
-            // Idle
             rb.velocity = Vector2.zero;
             anim.SetBool("isRunning", false);
         }
     }
 
-    bool PlayerInSight()
+    private bool PlayerInSight()
     {
         if (player == null) return false;
+        float dist = Vector2.Distance(transform.position, player.position);
+        if (dist > detectionRadius) return false;
 
-        float distance = Vector2.Distance(transform.position, player.position);
-        if (distance > detectionRadius) return false;
+        Vector2 dir = (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, detectionRadius, playerLayer);
 
-        Vector2 direction = (player.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, detectionRadius, playerLayer);
-
-        Debug.DrawRay(transform.position, direction * detectionRadius,
+        Debug.DrawRay(transform.position, dir * detectionRadius,
             (hit.collider != null && hit.collider.CompareTag("Player")) ? Color.green : Color.red);
 
         return hit.collider != null && hit.collider.CompareTag("Player");
@@ -90,40 +86,38 @@ public class ChargerEnemy : Enemy
 
     private Transform FindPlayerInDetectionRadius()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRadius, playerLayer);
-        foreach (var hit in hits)
+        foreach (var col in Physics2D.OverlapCircleAll(transform.position, detectionRadius, playerLayer))
         {
-            if (hit.CompareTag("Player"))
+            if (col.CompareTag("Player"))
             {
-                Vector2 direction = (hit.transform.position - transform.position).normalized;
-                RaycastHit2D ray = Physics2D.Raycast(transform.position, direction, detectionRadius, playerLayer);
-
-                if (ray.collider == hit)
-                {
-                    return hit.transform;
-                }
+                Vector2 dir = (col.transform.position - transform.position).normalized;
+                var ray = Physics2D.Raycast(transform.position, dir, detectionRadius, playerLayer);
+                if (ray.collider == col)
+                    return col.transform;
             }
         }
         return null;
     }
 
-    void DealDamage()
+    private void DealDamage()
     {
         if (player != null && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
-            if (player.TryGetComponent<PlayerMovement>(out var playerScript))
+            if (player.TryGetComponent<PlayerMovement>(out var pm))
             {
-                playerScript.TakeDamage(damage);
-                audioSource.PlayOneShot(slapSound);
+                pm.TakeDamage(damage);
+
+                // play slap SFX
+                if (audioSource != null && slapSound != null)
+                    audioSource.PlayOneShot(slapSound);
             }
         }
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
