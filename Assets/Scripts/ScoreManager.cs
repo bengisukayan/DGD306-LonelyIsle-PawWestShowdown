@@ -4,9 +4,9 @@ using System.Collections.Generic;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    public bool resetScoreAtStart = false;
+    private static bool scoreWasReset = false;
 
-    private const int maxHighScores = 5;
+    private const int maxHighScores = 7;
     private const string scoreKey = "HighScore_";
 
 
@@ -21,14 +21,25 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        if (resetScoreAtStart)
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        if (!scoreWasReset)
         {
             Instance.ResetScore();
-            PlayerMovement player = FindObjectOfType<PlayerMovement>();
+            scoreWasReset = true;
+
+
             if (player != null)
             {
                 player.health = 100;
                 player.lives = 9;
+            }
+        }
+        else
+        {
+            if (player != null)
+            {
+                Debug.Log("Player found, setting initial health and lives.");
+                player.health = 100;
             }
         }
     }

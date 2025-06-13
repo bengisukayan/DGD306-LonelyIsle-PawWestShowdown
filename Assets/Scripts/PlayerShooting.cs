@@ -16,6 +16,7 @@ public class PlayerShooting : MonoBehaviour
     private float nextFireTime = 0f;
     private bool shootPressed;
 
+
     void Update()
     {
         if (shootPressed && Time.time >= nextFireTime)

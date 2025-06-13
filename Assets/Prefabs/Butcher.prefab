@@ -107,10 +107,11 @@ MonoBehaviour:
   jumpForce: 10
   attackCooldown: 2
   dazedDuration: 3
-  damage: 30
+  damage: 25
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  attackSound: {fileID: 8300000, guid: 2f7103f83812ec044b5d69737715228f, type: 3}
 --- !u!95 &2144955838547992840
 Animator:
   serializedVersion: 5

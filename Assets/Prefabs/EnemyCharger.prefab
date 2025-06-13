@@ -131,6 +131,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  slapSound: {fileID: 8300000, guid: 91971f1a209041b4ba1430295e444ede, type: 3}
 --- !u!50 &6725241520714794105
 Rigidbody2D:
   serializedVersion: 4

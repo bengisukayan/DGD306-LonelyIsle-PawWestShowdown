@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Video;
+using System.Collections.Generic;
 public class NPCDialogue : MonoBehaviour
 {
     public GameObject dialoguePanel;
@@ -21,6 +22,9 @@ public class NPCDialogue : MonoBehaviour
 
     [Header("Event After Dialogue")]
     public UnityEvent onDialogueEnd;
+    public VideoPlayer cutsceneVideo;
+    public List<GameObject> objectsToHideDuringCutscene;
+
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -86,13 +90,48 @@ public class NPCDialogue : MonoBehaviour
 
     public void LoadNextScene()
     {
+        if (_hasSceneChanged) return;
         _hasSceneChanged = true;
+
+        if (cutsceneVideo != null)
+        {
+            StartCoroutine(PlayCutscene());
+        }
+        else
+        {
+            LoadSceneDirectly();
+        }
+    }
+
+    private IEnumerator PlayCutscene()
+    {
+        HideCutsceneObjects(true);
+        cutsceneVideo.Play();
+
+        while (cutsceneVideo.frame < (long)cutsceneVideo.frameCount - 1)
+            yield return null;
+
+        LoadSceneDirectly();
+    }
+
+    private void HideCutsceneObjects(bool hide)
+    {
+        foreach (GameObject obj in objectsToHideDuringCutscene)
+        {
+            if (obj != null)
+                obj.SetActive(!hide);
+        }
+    }
+    
+    private void LoadSceneDirectly()
+    {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
