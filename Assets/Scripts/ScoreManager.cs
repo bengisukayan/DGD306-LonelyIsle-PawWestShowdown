@@ -21,14 +21,22 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
         if (resetScoreAtStart)
         {
             Instance.ResetScore();
-            PlayerMovement player = FindObjectOfType<PlayerMovement>();
+
             if (player != null)
             {
                 player.health = 100;
                 player.lives = 9;
+            }
+        }
+        else
+        {
+            if (player != null)
+            {
+                player.health = 100;
             }
         }
     }

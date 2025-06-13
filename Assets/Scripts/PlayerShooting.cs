@@ -15,16 +15,11 @@ public class PlayerShooting : MonoBehaviour
 
     private float nextFireTime = 0f;
     private bool shootPressed;
-    private PlayerMovement playerMovement;
-    
-    void Start()
-    {
-        PlayerMovement playerMovement = GetComponent<PlayerMovement>();
-    }
+
 
     void Update()
     {
-        if (shootPressed && Time.time >= nextFireTime && playerMovement.canShoot)
+        if (shootPressed && Time.time >= nextFireTime)
         {
             StartCoroutine(Shoot());
             nextFireTime = Time.time + fireRate;
