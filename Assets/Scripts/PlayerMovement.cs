@@ -36,9 +36,6 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpPressed;
     private bool crouchPressed;
 
-    private float walkSoundCooldown = 0.2f;
-    private float lastWalkSoundTime = 0f;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
