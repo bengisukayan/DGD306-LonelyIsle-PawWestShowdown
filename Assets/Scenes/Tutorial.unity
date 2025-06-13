@@ -11177,6 +11177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1001940180}
   virtualCamera: {fileID: 1230587096}
+  esatCutscene: {fileID: 0}
+  adaCutscene: {fileID: 0}
+  cutsceneVideoPlayer: {fileID: 0}
 --- !u!1 &1044857488
 GameObject:
   m_ObjectHideFlags: 0
