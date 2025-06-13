@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Start
+  m_text: Press Dottopus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 742c503f27445174191c611609a5a5ed, type: 2}
   m_sharedMaterial: {fileID: 772354557925613628, guid: 742c503f27445174191c611609a5a5ed, type: 2}
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -464,6 +464,16 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: eb52f485-871f-4e95-a8d1-62f9b1b43cd6
     m_ActionName: PlayerInput/Interact[/XInputControllerWindows/buttonWest,/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 51a12cba-c1b6-4040-a591-62070a2b3630
+    m_ActionName: PlayerInput/Submit[/DragonRise Inc.   Generic   USB  Joystick 
+      /button3]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9446a3d9-11ef-455a-860b-c6d97488bea1
+    m_ActionName: PlayerInput/Navigate[/DragonRise Inc.   Generic   USB  Joystick 
+      /hat,/DragonRise Inc.   Generic   USB  Joystick  /stick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput
