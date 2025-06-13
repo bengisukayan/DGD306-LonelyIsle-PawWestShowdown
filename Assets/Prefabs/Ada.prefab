@@ -283,6 +283,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 2645912784191581247}
+  walkSound: {fileID: 8300000, guid: 12b5c8c4c25f9a64997bcaddf0b811de, type: 3}
+  jumpSound: {fileID: 8300000, guid: 177a2a6cf0fcd9144a559d4063a8d3f3, type: 3}
+  hurtSound: {fileID: 8300000, guid: 742885aee45adce48a82dbe24a04f55f, type: 3}
 --- !u!61 &8400376679304484522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -442,6 +445,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 72
+  shoot: {fileID: 8300000, guid: f888de0cb8ac58b45be55801cb7501c1, type: 3}
 --- !u!114 &435741035688484447
 MonoBehaviour:
   m_ObjectHideFlags: 0

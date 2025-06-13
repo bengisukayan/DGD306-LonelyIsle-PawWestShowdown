@@ -5,6 +5,14 @@ public abstract class Enemy : MonoBehaviour
 {
     public int health = 100;
     public GameObject deathEffect;
+    private AudioSource audioSource;
+    public AudioClip enemy_dead;
+    public AudioClip enemy_hurt;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public virtual void TakeDamage(int damage)
     {
@@ -13,6 +21,10 @@ public abstract class Enemy : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            audioSource.PlayOneShot(enemy_dead);
+        }
     }
 
     public virtual void Die()
@@ -20,6 +32,7 @@ public abstract class Enemy : MonoBehaviour
         if (deathEffect != null)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
+            audioSource.PlayOneShot(enemy_dead);
         }
         if (SceneManager.GetActiveScene().name == "Godfather")
         {
@@ -36,7 +49,6 @@ public abstract class Enemy : MonoBehaviour
             ScoreManager.Instance.AddScore(100);
         }
 
-        //AudioManager.Instance.PlaySound("EnemyDeath");
         Destroy(gameObject);
     }
 }

@@ -16,6 +16,13 @@ public class PlayerShooting : MonoBehaviour
     private float nextFireTime = 0f;
     private bool shootPressed;
 
+    private AudioSource audioSource;
+    public AudioClip shoot;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -37,6 +44,7 @@ public class PlayerShooting : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        audioSource.PlayOneShot(shoot);
         RaycastHit2D hit = Physics2D.Raycast(gunPoint.position, gunPoint.right, range, ~playerLayer);
 
         if (hit)
