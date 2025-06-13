@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Dottopus
+  m_text: Press Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 742c503f27445174191c611609a5a5ed, type: 2}
   m_sharedMaterial: {fileID: 772354557925613628, guid: 742c503f27445174191c611609a5a5ed, type: 2}
@@ -308,6 +308,7 @@ MonoBehaviour:
   pressStartText: {fileID: 198341902}
   fadeDuration: 1
   tintTransitionDuration: 2
+  audioSource: {fileID: 797821187}
 --- !u!4 &246328419
 Transform:
   m_ObjectHideFlags: 0

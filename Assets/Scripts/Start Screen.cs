@@ -17,6 +17,7 @@ public class StartScreen : MonoBehaviour
 
     public float fadeDuration = 1f;
     public float tintTransitionDuration = 1f;
+    public AudioSource audioSource;
 
 
     public void OnSubmit(InputAction.CallbackContext context)
@@ -29,6 +30,7 @@ public class StartScreen : MonoBehaviour
 
     void StartGame()
     {
+        audioSource.enabled = false;
         StartCoroutine(PlayIntroSequence());
     }
 
