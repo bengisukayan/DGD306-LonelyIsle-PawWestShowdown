@@ -20,12 +20,16 @@ public class PatrolEnemy : Enemy
     private Transform player;
     private Animator anim;
 
+    public AudioClip shoot;
+    private AudioSource audioSource;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -118,6 +122,7 @@ public class PatrolEnemy : Enemy
 
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, hit.collider ? hit.point : transform.position + (Vector3)direction * detectionRadius);
+        audioSource.PlayOneShot(shoot); 
 
         if (hit.collider != null && hit.collider.CompareTag("Player") &&
             hit.collider.TryGetComponent<PlayerMovement>(out var playerScript))

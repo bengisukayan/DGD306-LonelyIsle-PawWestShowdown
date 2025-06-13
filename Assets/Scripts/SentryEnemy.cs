@@ -15,10 +15,14 @@ public class SentryEnemy : Enemy
     private Transform player;
     private Animator anim;
 
+    public AudioClip shoot;
+    private AudioSource audioSource;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -95,6 +99,7 @@ public class SentryEnemy : Enemy
 
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, hit.collider ? hit.point : transform.position + (Vector3)direction * detectionRadius);
+        audioSource.PlayOneShot(shoot);
 
         if (hit.collider != null && hit.collider.CompareTag("Player") &&
             hit.collider.TryGetComponent<PlayerMovement>(out var playerScript))

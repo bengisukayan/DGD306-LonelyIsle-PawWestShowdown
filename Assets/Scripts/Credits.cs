@@ -20,7 +20,7 @@ public class Credits : MonoBehaviour
         }
     }
 
-    private void LoadNextScene()
+    public void LoadNextScene()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)

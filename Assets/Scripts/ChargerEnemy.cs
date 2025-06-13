@@ -15,11 +15,15 @@ public class ChargerEnemy : Enemy
     private SpriteRenderer spriteRenderer;
     private float nextAttackTime = 0f;
 
+    public AudioClip slapSound;
+    private AudioSource audioSource;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -110,6 +114,7 @@ public class ChargerEnemy : Enemy
             if (player.TryGetComponent<PlayerMovement>(out var playerScript))
             {
                 playerScript.TakeDamage(damage);
+                audioSource.PlayOneShot(slapSound);
             }
         }
     }
