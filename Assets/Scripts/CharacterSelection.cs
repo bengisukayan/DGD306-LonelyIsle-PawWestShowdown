@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class CharacterSelection : MonoBehaviour
@@ -24,39 +23,32 @@ public class CharacterSelection : MonoBehaviour
         UpdateSelectionVisuals();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    void Update()
     {
-        if (!context.performed || !canNavigate) return;
-
-        Vector2 input = context.ReadValue<Vector2>();
-        if (input.x > 0.5f)
+        float inputX = Input.GetAxisRaw("p_horizontal");
+        if (canNavigate)
         {
-            selectedIndex = 1;
-            StartCoroutine(NavigationCooldown());
+            if (inputX > 0.5f)
+            {
+                selectedIndex = 1;
+                StartCoroutine(NavigationCooldown());
+                UpdateSelectionVisuals();
+            }
+            else if (inputX < -0.5f)
+            {
+                selectedIndex = 0;
+                StartCoroutine(NavigationCooldown());
+                UpdateSelectionVisuals();
+            }
         }
-        else if (input.x < -0.5f)
+
+        if (Input.GetButtonDown("Submit"))
         {
-            selectedIndex = 0;
-            StartCoroutine(NavigationCooldown());
+            if (selectedIndex == 0)
+                SelectCharacterA();
+            else
+                SelectCharacterB();
         }
-
-        UpdateSelectionVisuals();
-    }
-
-    public void OnSubmit(InputAction.CallbackContext context)
-    {
-        if (!context.performed) return;
-
-        if (selectedIndex == 0)
-            SelectCharacterA();
-        else
-            SelectCharacterB();
-    }
-
-    private void UpdateSelectionVisuals()
-    {
-        adaImage.color = selectedIndex == 1 ? highlightColor : normalColor;
-        esatImage.color = selectedIndex == 0 ? highlightColor : normalColor;
     }
 
     private System.Collections.IEnumerator NavigationCooldown()
@@ -64,6 +56,12 @@ public class CharacterSelection : MonoBehaviour
         canNavigate = false;
         yield return new WaitForSeconds(0.2f);
         canNavigate = true;
+    }
+
+    private void UpdateSelectionVisuals()
+    {
+        adaImage.color = selectedIndex == 1 ? highlightColor : normalColor;
+        esatImage.color = selectedIndex == 0 ? highlightColor : normalColor;
     }
 
     private void SelectCharacterA()

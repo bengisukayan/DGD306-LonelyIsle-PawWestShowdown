@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -17,7 +16,7 @@ public class NameInput : MonoBehaviour
 
     private bool canNavigate = true;
 
-    private void Start()
+    void Start()
     {
         if (scoreText != null)
             scoreText.text = "Score: " + ScoreManager.Instance.CurrentScore.ToString();
@@ -26,29 +25,30 @@ public class NameInput : MonoBehaviour
         UpdateNameDisplay();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    void Update()
     {
-        if (!context.performed || !canNavigate) return;
+        if (!canNavigate) return;
 
-        Vector2 input = context.ReadValue<Vector2>();
+        float x = Input.GetAxisRaw("p_horizontal");
+        float y = Input.GetAxisRaw("p_vertical");
         bool changed = false;
 
-        if (input.x > 0.5f)
+        if (x > 0.5f)
         {
             currentLetter = (currentLetter + 1) % 4;
             changed = true;
         }
-        else if (input.x < -0.5f)
+        else if (x < -0.5f)
         {
             currentLetter = (currentLetter - 1 + 4) % 4;
             changed = true;
         }
-        else if (input.y > 0.5f)
+        else if (y > 0.5f)
         {
             userName[currentLetter] = (char)(((userName[currentLetter] - 'A' + 25) % 26) + 'A'); // Up
             changed = true;
         }
-        else if (input.y < -0.5f)
+        else if (y < -0.5f)
         {
             userName[currentLetter] = (char)(((userName[currentLetter] - 'A' + 1) % 26) + 'A'); // Down
             changed = true;
@@ -59,13 +59,11 @@ public class NameInput : MonoBehaviour
             UpdateNameDisplay();
             StartCoroutine(NavigationCooldown());
         }
-    }
 
-    public void OnSubmit(InputAction.CallbackContext context)
-    {
-        if (!context.performed) return;
-
-        SubmitName();
+        if (Input.GetButtonDown("Submit"))
+        {
+            SubmitName();
+        }
     }
 
     private IEnumerator NavigationCooldown()

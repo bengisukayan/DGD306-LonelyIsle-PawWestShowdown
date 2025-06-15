@@ -51,8 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Poll input from InputManager
         moveInput = new Vector2(Input.GetAxis("p_horizontal"), Input.GetAxis("p_vertical"));
-        jumpPressed = Input.GetButtonDown("Jump"); // Requires a "Jump" input defined in Input Manager
-        crouchPressed = Input.GetKey(KeyCode.S) || moveInput.y < -0.5f;
+        crouchPressed = moveInput.y < -0.5f;
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
         isCrouching = crouchPressed && isGrounded;
@@ -90,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (jumpSound != null)
                 audioSource.PlayOneShot(jumpSound);
+            jumpPressed = false;
         }
 
         isFalling = rb.velocity.y < -0.1f && !isGrounded;
@@ -156,5 +156,13 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         transform.position = Vector2.zero;
         shooting.enabled = true;
+    }
+    
+    public void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            jumpPressed = true;
+        }
     }
 }

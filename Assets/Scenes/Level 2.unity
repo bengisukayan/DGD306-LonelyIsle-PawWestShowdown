@@ -9155,7 +9155,7 @@ PrefabInstance:
     - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 857772232}
     - target: {fileID: 3288039338969305397, guid: de613b0bf29188c47994fdd97dd39d22, type: 3}
       propertyPath: dialogueText
       value: 
