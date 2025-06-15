@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -36,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpPressed;
     private bool crouchPressed;
 
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -46,17 +45,19 @@ public class PlayerMovement : MonoBehaviour
         health = startingHealth;
     }
 
-    private void Update()
+    void Update()
     {
         if (isDead) return;
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        // Poll input from InputManager
+        moveInput = new Vector2(Input.GetAxis("p_horizontal"), Input.GetAxis("p_vertical"));
+        jumpPressed = Input.GetButtonDown("Jump"); // Requires a "Jump" input defined in Input Manager
+        crouchPressed = Input.GetKey(KeyCode.S) || moveInput.y < -0.5f;
 
-        // Crouch
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
         isCrouching = crouchPressed && isGrounded;
         anim.SetBool("Crouch", isCrouching);
 
-        // Movement
         if (!isCrouching)
         {
             rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
@@ -70,10 +71,9 @@ public class PlayerMovement : MonoBehaviour
                     audioSource.Play();
                 }
             }
-            else
+            else if (audioSource.loop && audioSource.clip == walkSound)
             {
-                if (audioSource.loop && audioSource.isPlaying && audioSource.clip == walkSound)
-                    audioSource.Stop();
+                audioSource.Stop();
                 audioSource.loop = false;
             }
 
@@ -83,8 +83,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
-        // Jump
         if (jumpPressed && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -92,37 +90,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (jumpSound != null)
                 audioSource.PlayOneShot(jumpSound);
-
-            jumpPressed = false;
         }
 
-        // Falling
         isFalling = rb.velocity.y < -0.1f && !isGrounded;
 
-        // Animator
         anim.SetFloat("Speed", Mathf.Abs(moveInput.x));
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetBool("IsFalling", isFalling);
-    }
-
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>();
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if (!isGrounded) return;
-        if (context.started)
-            jumpPressed = true;
-    }
-
-    public void OnCrouch(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            crouchPressed = true;
-        else if (context.canceled)
-            crouchPressed = false;
     }
 
     public void TakeDamage(int damage)

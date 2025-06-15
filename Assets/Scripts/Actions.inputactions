@@ -15,15 +15,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
-                    "type": "Button",
-                    "id": "d683c155-7d37-43b0-b92f-c27437d778c1",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Shoot",
                     "type": "Button",
                     "id": "6285dcc0-208f-4661-bac4-95e7678c413e",
@@ -31,15 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Walk",
-                    "type": "Value",
-                    "id": "60f2181f-0d03-4ec6-98e3-a2c605ddb5b2",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 },
                 {
                     "name": "Start",
@@ -67,15 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Navigate",
-                    "type": "Value",
-                    "id": "9446a3d9-11ef-455a-860b-c6d97488bea1",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -103,28 +76,6 @@
                 },
                 {
                     "name": "",
-                    "id": "3024c246-2216-498d-8437-8fecb5609086",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "be5a29a9-39be-41c0-92e7-8c9c56c5ce87",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/hat/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "82d042b5-8007-48ec-ae0c-8a37e76877c1",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
@@ -142,28 +93,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cafdc814-8036-4ee2-a7af-d6e67ea76e38",
-                    "path": "<Gamepad>/dpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Walk",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3bcefb1f-8260-49bb-b7cd-8a8bd873a607",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/hat",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Walk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -230,28 +159,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "09907eec-c7de-4cea-8604-cf66c1f19ee7",
-                    "path": "<Gamepad>/dpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "17dae661-2237-4f5b-a8b0-d86552a37b0d",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/hat",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
